@@ -59,7 +59,7 @@ prompt3 = ChatPromptTemplate.from_messages(
 
 # Amazon Bedrock - KnowledgeBase Retriever 
 retriever3 = AmazonKnowledgeBasesRetriever(
-    knowledge_base_id="CZZ1DBZAYB", # Set your Knowledge base ID
+    knowledge_base_id="4L0WE8NOOH", # Set your Knowledge base ID
     retrieval_config={"vectorSearchConfiguration": {"numberOfResults": 10}},
 )
 
@@ -191,10 +191,10 @@ if prompt := st3.chat_input():
                     
                     bucket, key = parse_s3_uri(s3_uri)
                     presigned_url = create_presigned_url(bucket, key)
-                    if presigned_url:
-                            st3.markdown(f"**Fuente:** [{s3_uri}]({presigned_url})")
-                    else:
-                            st3.write(f"**Fuente**: {s3_uri} (Presigned URL generation failed)")
+                   ## if presigned_url:
+                   ##         st3.markdown(f"**Fuente:** [{s3_uri}]({presigned_url})")
+                   ## else:
+                   ##         st3.write(f"**Fuente**: {s3_uri} (Presigned URL generation failed)")
                     st3.write(f"**Fuente**: *{key}* ")
                  
                     st3.write("**Score**:", citation.metadata['score'])
@@ -217,11 +217,11 @@ if prompt := st3.chat_input():
                     st3.write("**Contenido:** ", citation.page_content)
                     s3_uri = citation.metadata['location']['s3Location']['uri']
                     bucket, key = parse_s3_uri(s3_uri)
-                    presigned_url = create_presigned_url(bucket, key)
-                    if presigned_url:
-                            st3.markdown(f"**Fuente:** [{s3_uri}]({presigned_url})")
-                    else:
-                            st3.write(f"**Fuente**: {s3_uri} (Presigned URL generation failed)")
+                  ##  presigned_url = create_presigned_url(bucket, key)
+                  ##  if presigned_url:
+                  ##          st3.markdown(f"**Fuente:** [{s3_uri}]({presigned_url})")
+                  ##  else:
+                  ##          st3.write(f"**Fuente**: {s3_uri} (Presigned URL generation failed)")
                     st3.write(f"**Fuente**: *{key}* ")
                 
                     st3.write("**Score**:", citation.metadata['score'])

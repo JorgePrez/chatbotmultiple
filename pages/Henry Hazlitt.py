@@ -58,7 +58,7 @@ prompt2 = ChatPromptTemplate.from_messages(
 
 # Amazon Bedrock - KnowledgeBase Retriever 
 retriever2 = AmazonKnowledgeBasesRetriever(
-    knowledge_base_id="RQUJMYLO3A", # Knowledge base ID
+    knowledge_base_id="7MFCUWJSJJ", # Knowledge base ID
     retrieval_config={"vectorSearchConfiguration": {"numberOfResults": 10}},
 )
 
